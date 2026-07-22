@@ -1,0 +1,70 @@
+Experiment- 1.1
+
+Problem - Contain Duplicates (Leetcode = 217)
+
+Aim - Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+Algorithm -
+1. Start
+2. Read the input array nums.
+3. Sort the array in ascending order.
+4. Traverse the array from index 1 to len(nums) - 1.
+5. Compare the current element nums[i] with the previous element nums[i - 1].
+6. If both elements are equal:
+7. Return True (duplicate found).
+8. If the loop finishes without finding any duplicate:
+9. Return False (all elements are distinct).
+10. End
+
+Code - 
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        nums.sort()
+
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                return True
+
+        return False
+
+Experiment- 1.2
+
+Problem - Contain Dupliactes 2 (Leetcode = 219)
+
+Aim- Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+Algorithm -
+1. Start
+2. Read the input array nums and integer k.
+3. Create an empty dictionary d.
+4. Traverse the array from index 0 to len(nums) - 1.
+5. Check if the current element nums[i] already exists in the dictionary.
+6. If it exists:
+   Calculate the distance between the current index and the previous index: i - d[nums[i]].
+   If the distance is less than or equal to k, return True.
+7. Store or update the current element and its index in the dictionary:
+   d[nums[i]] = i
+8. Repeat Steps 5–7 for all elements.
+9. If no nearby duplicate is found after completing the loop, return False.
+
+Code -
+class Solution(object):
+    def containsNearbyDuplicate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        d={}
+        for i in range (len(nums)):
+            if nums[i] in d:
+                if i-d[nums[i]]<= k:
+                    return True
+
+            d[nums[i]] = i
+
+        return False
