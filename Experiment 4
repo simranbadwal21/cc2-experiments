@@ -1,0 +1,26 @@
+Experiment = 4.1
+
+Problem - Middle of the Linked List( 876)
+
+Aim-Given the head of a singly linked list, return the middle node of the linked list.
+
+Algorithm-
+Initialize two pointers: slow and fast, both pointing to head.
+Move slow one node at a time.
+Move fast two nodes at a time.
+Continue while fast and fast.next are not None.
+When the loop ends, slow will point to the middle node.
+Return slow.
+For an even-sized list, slow reaches the second middle node.
+
+Code- 
+class Solution(object):
+    def middleNode(self, head):
+        slow = head
+        fast = head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        return slow
