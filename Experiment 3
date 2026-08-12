@@ -5,7 +5,6 @@ Problem - Implement Queue using Stacks( 232)
 Aim-Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
 
 Algorithm-
-Algorithm: Implement Queue Using Two Stacks
 
 1. Start.
 2. Create two empty stacks: s1 and s2.
@@ -48,4 +47,5 @@ class MyQueue(object):
 
     def empty(self):
         return len(self.s1)== 0
-        
+
+
